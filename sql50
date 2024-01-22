@@ -1,0 +1,196 @@
+
+SQL Structure => Database  , Tables (in one database we can store or  creaate multiple tables), we store data rows and column form;////
+
+DATA_TYPES => Data type  of a column defines whats value the column can store in the table, defined while creating tables in database,data type define mainely  in three categories / mostely used
+1) string : char (fixed length string that can conntain numbers ,letters, and special characters),varcher,etc///
+2) numerice : int (used for integer value), flote (use to specify descimal point number) ,  bool (specify true  and false),etc////
+3)Date and Time : date (date format yyyy-mm-dd), datetime (date  and time combination, format is yyyy-mm-dd hh:mm:ss ), etc ;///
+
+ PRIMERY  KEY (ID NOT NULL AUTO_INCREMENT ) => it is  use to  featch data, it contains uniqe data , it cannot be null ,there must be a single primery  key, and  we use with id;////
+
+FOREIGN KEYS (FK) => A foreign key is a column used to  link two or more tables together, A table  can have any  numbers of forign keys it can  contain duplicate and NULL  values;//////
+CONSTRAINTS => Commonly used constraints in  sql
+UNIQUE:(it ensures taht  all values in coooumn is diffrent  )
+CHECK: Ensures that values of the colunnm  stisfies a specific condation
+DEFAULT: Ensures that the values inthe  column if no  values is specified 
+CREATE INDEX : Used to  create and retrive data from the database very quickely
+ 
+ ============================================================================================================================================
+ 
+NISERT  VALLUES IN TABLE
+Te INSERT INTO statement is used to  insert new records in table
+
+.SYNTAX 
+         INSERT INTO TABLE NAME  (COLUMN1,column2,column3,...) VALUES(value1,value2,value3...)
+         
+ INSERT INTO customer 
+ (CustID,customer,name,age,city,salary) VALUES (1,'sam',26,'delhi'9000), ...
+ 
+ ===========================================================================================================================================
+ 
+ UPDATE VALUES  IN TABLE
+ 
+ the UPDATE COMMAND is use to update existing rows in table 
+ 
+ .SYNTAX
+ 
+ UPDATE TABLE_NAME
+SET "column_name1"='value1', "column_name2"='value2',
+WHERE "ID"='value'
+
+ DELETE :the  delet statement is used to delete existing records in thable
+ 
+ .syntax 
+ DELETE  FROM table_name WHERE Condition;
+ ===========================================================================================================================================
+ 
+ ALTER TABLE  =>
+ 
+ ALTER TABLE - ADD Column
+
+.syntax
+
+ALTER TABLE table_name
+ADD column_name datatype;
+ 
+ .syntax
+ 
+ ALTER TABLE - DROP COLUMN
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ .syntax
+ 
+ ALTER TABLE - RENAME COLUMN
+
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name;
+        
+=============================================================================================================================================
+
+DROP AND TURNCATE TABLE =>
+
+DROP TABLE 
+
+The DROP TABLE command deletes a table in the database
+
+.syntax
+DROP TABLE table_name;
+
+TRUNCATE TABLE
+The TRUNCATE TABLE command deletes the data inside a table, but not the table itself.
+
+.syntax
+TRUNCATE TABLE table-name;
+
+=============================================================================================================================================
+
+SELECT STATEMENT
+The SELECT statement is used to select data from a database.
+
+The data returned is stored in a result table, called the result-set.
+
+SELECT Syntax
+SELECT column1, column2, ...
+FROM table_name;
+
+
+SELECT DISTINC//////////
+
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
+
+. syntax
+
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+
+============================================================================================================================================
+
+LIMIT CLAUSE  /////
+
+the limit clause use to set an upper limit of the nuumber of tupales returned by sql
+Example : below code will return 5 rows of data
+SELECT  column_name FROM table
+LIMIT 5,
+
+ODERD BY CLAUS ///
+the orderd by clause  use to short the reasult-set in ascending order or desecnding order  
+SELECT column_name FROM table_name
+ORDER BY column_name ASC for  asanding DESC for desecnding
+
+============================================================================================================================================
+
+IMPORT CSV FILE /// {PENDING TASK}
+
+============================================================================================================================================
+
+FUNCTION ////
+
+1) UPPER( "converts uppercase" ), 2) LOWER(" converts lowercase "), 3) LENGTH( "its return length of value in text field " ), 4) SUBSTRING("extarcts a substring from a string"), 5) NOW("its return system date and time "), 6)  FORMAT(use to set a fromat ), 7) CONCATE(" add two or more sttring together"),  8 REPLACE(), 9) TRIM()
+
+============================================================================================================================================
+
+Aggregate Function =>
+Aggregate function perform a calculation on multipale values and returns a single value 
+
+and aggregate function more often used with group by & select statement
+
+1) count(its return the number of row) , 2) sum (it will calculate the totale number of column  value), 3 avg(), 4) max(it will  return the max num of in column), 5) min(min number of column), 6) round(we use round with avg() stop extra zero )
+
+============================================================================================================================================
+
+GROUP BY STATEMENT =>
+the group by statement group rows that have the same value into summery rows .
+
+it is often used with the aggregate function {count(), max(),min(),sum(),AVG()}
+to group the reasult -set  by one or more columns
+
+.syntax  
+SELECT column_name(s) FROM table_name
+GROUP BY column_name()
+
+EXAMPLE
+SELECT mode,SUM(amount) AS totale
+FROM  payment
+GROUP BY mode
+ 
+ ==========================================================================================================================================
+ 
+ HAVING CLAUSE =>
+ 
+ the having clause is use to  applay a filter on the result of GROUP BY based on specifide condation.
+ 
+ the WHERE clause places condation on the select columns , whereas the HAVING clause places condation on groups created by the GROUP BY clause
+ 
+.syntax
+EXAMPLE : SELECT mode, COUNT(amount) as total
+FROM payment 
+GROUP BY  mode 
+HAVING  COUNT(amount)=3
+ORDER BY DESC
+
+============================================================================================================================================
+
+TIMESTAMP  =>
+the TIMESTAMP data type is used for values that contain both date and time parts
+
+.TIME contains only  time, formate HH:MI:SS,
+.DATE contains on date, formate  YYYY-MM-DD,
+.YEAR contains on  year, formate YYYY-MM-DD,
+.TIMESTAMPES contains date and time,  formate YYYY-MM-DD HH:MI:SS,
+.TIMESTAMPTZ contains  date,time and time zone
+
+TIMESTAMP = function/opration
+.SHOW TIMEZONE
+.SELECT NOW()
+.SELECT TIMEOFDAY()
+.SELECT CURRENT _TIME
+.SELECT CURRENT_DATE
+ 
+
+
+
+enum => we use enum data type for predefine values.  and its not case sensitive, ex: day of week and taffice lites /////
+
+AUTO_INCREMENT => we use auto increment with id for  when new record inserted it will generate new id//////
