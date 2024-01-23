@@ -189,6 +189,236 @@ TIMESTAMP = function/opration
 .SELECT CURRENT_DATE
  
 
+==============================================================================================================================================
+
+EXTRACRT FUNCTION =>
+
+the extraxt  function extract a part from given date and value 
+
+SELECT EXTRACT(MONTH  FROOM DATE-FEALD) FORM TABLE
+
+1) YEAR 2) QUATER 3) MONTH 4)  WEEK 5) DAY 6)HOWER 7)MINUTE 8) DOW  (DAY  OF WEEK) 9)DOY (DAY OF YEAR)
+
+==============================================================================================================================================
+
+JOINS =>
+
+. JOINS mean to combine somthing
+
+. a join claus is use to combine data two or more tables, based on related  column between them
+
+TYPES OF JOINS
+
+1)INNER JOIN
+
+RETURNS RECORED HAVE MACHINNG VALUE IN BOTH TABLES
+
+ .SYNTAX
+
+SELECT column_name (s)
+FROM TabelA
+INNER  JOIN TableB
+ON tableA.col_name =  TableB.col_name
+
+ 2)LEFT JOIN
+
+returns  all recored  from the left table ,and match recored from the right  table
+
+syntax
+SELET column_name(s)
+FROM TableA
+LEFT JOIN TableB
+ON TableA.col_name = TableB.col_name
+
+ 3)RIGHT JOIN 
+
+retuurns all  recored from the righht table, and the mached the recoreds from the left table
+.syntax 
+
+SELECT column_name (s)
+FROM TableA
+RIGHT JOIN TableB
+
+ON TableA.col_name = TableB.col_name
+  
+4)FULL JOIN
+
+returns all recored when their is a match in ether left or right table
+
+SELECT *
+FROM customer AS c
+FULL OUTER JOIN payment AS p
+ON c.customer_id  = P.customer_id
+
+WHICH JOIN TO USE=>
+
+.INNER JOIN: return records that have maching value in doth tables
+
+.LEFT JOIN: Returns all recored from left table, and matched recored right table
+
+.RIGHT JOIN Returns all records  from the right table , and match record from left table
+
+.Returns all recored when their is a match in ether left or right table
+
+
+==============================================================================================================================================
+
+SELF JOIN 
+
+.A self join is a regular join in which table is joined to itself 
+
+.SELF joins are powerful for comparing values in a column of  rows with the same table
+
+.syntax 
+
+SELECT column_name(s)
+FROM Tables  AS T1
+JOIN Table AS T2
+
+ON T1.col_name = T2.col_name
+
+==============================================================================================================================================
+
+UNION =>
+
+it  is use to combin /concatenate the reasult of two or more  more SELECT without return any duplicate value 
+
+to use unoin claus each select statment  have 
+
+.the same numbers of column selected and exppratoin
+. the same data type and
+have them in same order
+
+syntax
+
+SELECT coluumn_name(s) FROM TableA
+UNION
+SELECT column_name(s) FROM tableB
+
+UNION ALL
+
+syntax
+
+is same like union but its includ duplicates
+
+==============================================================================================================================================
+
+SUB QUERY=>
+
+Asubquery or inner  query or nested query allow as to create complex query on the outpute on the another query 
+
+.Sub query syntax involves to select statement
+
+.syntax
+
+SELECT column_name(s)
+FROM  table_name
+WHERE column_name oprator
+(SELECT column_name FROM Table_name WHERE)
+
+
+=============================================================================================================================================
+
+WINDOW FUNCTION =>
+
+.WINDOW FUNCTION applies aggregat, ranking and analytic function 
+over a perticular window (set of  rows)
+
+.and over clause is used with window function to define that window 
+
+WINDOW FUNCTION SYNTAX 
+
+SELECT column_name(s),
+
+fun() over([<PARTITION BY Cluse >]
+[<ORDER BY cluse >]
+[<ROW or RANGE cluse>])
+FORM TABLE_NMAE
+
+
+
+
+SELECT FUNCTON
+
+.Aggrregate function{
+.SUM 
+.AVG
+.COUNT
+.MIN
+.MAX
+} 
+.ranking function{
+.ROW_NUMBER
+.RANK
+.DENSE_RANK
+.PERCENT_RANK
+} 
+.Analytic Function{
+.LEAD
+.LAG
+.FIRST_VALUE
+.LAST_VALUE
+}
+
+Define a window  
+
+.partition by 
+.order by
+.rows
+============================================================================================================================================
+
+   CASE Statement=>
+
+.the case expression gose trough coundiction a return a value when the first condition is mate (like  if-then-else statement)
+if no condition is true then it returen the value of the else claus
+
+.if there is no else part and condition are true,it returen null
+
+EXAMPLE 
+
+SELEECT customer_id, amount
+
+case 
+
+WHEN amount >100 THEN 'Expensive Product'
+WHEN amount = 100 THEN 'Moderate  Product'
+ELSE 'inexpensive product'
+ 
+END AS ProductStatus
+FROM payment
+
+
+CASE EXPRESSION SYNTAX
+
+SELECT Customer _id 
+
+case amount 
+
+WHEN 500 THEN 'Prime customer'
+WHEN 100 THEN 'Plus customer'
+ELSE 'Regular Customer'
+
+END AS CustomerStatus
+FROM payment
+==============================================================================================================================================
+
+COMMON TABLE  EXPRESSION
+
+.A common table expression , or CTE, is a temporary named reasult set  created with a simple SELECT statement
+can be used in a sunsequent SELECT statment 
+
+.we can define CTEs buy adding a with claus     before SELECT, INSERT, UPDATE, DELETE, or MEARGE
+statement.
+
+.The WITH clause can include one or more CTEs spearated by commas
+
+.syntax WITH my_cte AS(
+SELECT a,b,c
+FROM Table)
+
+SELECT a,c
+FROM my_cte
+)
 
 
 enum => we use enum data type for predefine values.  and its not case sensitive, ex: day of week and taffice lites /////
